@@ -1,0 +1,11 @@
+menu=['tea','coffee','juice']
+menu.append('cola')
+print(menu)
+menu.insert(1,'xue')
+print(menu)
+menu.remove('juice')
+print(menu)
+drink=menu.pop()
+print(drink)
+menu[0]=('american coffee')
+print(menu)
