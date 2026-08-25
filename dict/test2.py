@@ -21,10 +21,34 @@ records = [
         "students": ["Alice", "Charlie", "Bob"],
         "top_student": "Alice"
     }
-}
-考察点：
-
-分组逻辑：遍历列表，将数据按 subject 归类到字典中。
-列表与字典嵌套操作：动态维护每个科目的分数列表和学生列表。
-内置函数与排序：使用 sum() / len() 计算平均分，使用 sorted 配合 lambda 按分数排序学生名字。
-字典取值：熟练使用 .get() 或 setdefault 避免 KeyError。"""
+}"""
+records = [
+    {"name": "Alice", "subject": "Math", "score": 88},
+    {"name": "Bob", "subject": "Math", "score": 92},
+    {"name": "Alice", "subject": "English", "score": 95},
+    {"name": "Charlie", "subject": "Math", "score": 78},
+    {"name": "Bob", "subject": "English", "score": 85},
+    {"name": "Charlie", "subject": "English", "score": 90},
+]
+temp={}#先构造一个非排序的分学科字典
+for item in records:
+    subject=item["subject"]
+    name=item["name"]
+    score=item["score"]
+    if subject not in temp:
+        temp[subject]={"scores":[],"names":[]}#字典的增加操作，等号后面是value
+    temp[subject]['scores'].append(score)
+    temp[subject]['names'].append(name)
+result={}#我要的结果
+for subject,data in temp.items():#同时取出key and value
+    scores=data["scores"]
+    names=data['names']
+    sorted_pairs=sorted(zip(scores,names),key=lambda x:x[0],reverse=True)#元组列表
+    avg=sum(scores)/len(scores)
+    sort_name=[name for score,name in sorted_pairs]
+    result[subject]={
+        "avg_score":round(avg,1),#round函数保留精度
+        "students":sort_name,
+        "top_student":sort_name[0]
+    }
+print(result)
