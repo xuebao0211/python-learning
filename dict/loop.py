@@ -23,3 +23,12 @@ score_dict = {"Alice": 85, "Bob": 92, "Charlie": 78}
 dict_sort=dict(sorted(score_dict.items(),key=lambda x:x[0],reverse=True))
 dict_sort1=dict(sorted(score_dict.items(),key=lambda x:x[1]))
 print(dict_sort,dict_sort1)
+for key in list(d.keys()):
+    if key=='b':
+        del d[key]
+print(d)
+#users = {"user1": {"age": 20, "city": "NY"}, "user2": {"age": 25}}
+#让你安全地获取 user2 的 city，如果不存在就返回 "Unknown"，该怎么写？
+users = {"user1": {"age": 20, "city": "NY"}, "user2": {"age": 25}}
+city=users.get("user2",{}).get("city","Unknown")
+print(city)
