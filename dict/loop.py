@@ -17,7 +17,7 @@ print(data_view,data_view1)
 d['c']=3
 print(data_view,data_view1)
 snap=list(d.items())
-snap1=list(d.values())
+snap1=list(d.values())#返回的是视图
 print(snap,snap1)
 score_dict = {"Alice": 85, "Bob": 92, "Charlie": 78}
 dict_sort=dict(sorted(score_dict.items(),key=lambda x:x[0],reverse=True))

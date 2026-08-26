@@ -6,7 +6,7 @@ print(info.get("name"))
 print(info["score"])
 #add and change
 data={"city":"beijing"}
-data["city"]="shanghai"
+data["city"]="shanghai"#字典可以通过赋值直接添加
 data["country"]="china"
 print(data)
 #批量更新
